@@ -3,30 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milan Gabriel | Cricket Analytics</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>GabMetrix | Sports Data Analytics</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/script.js"></script>
 </head>
-<body class="bg-gray-100 text-gray-900">
-
-    <!-- Hero Section -->
-    <div class="flex flex-col items-center justify-center h-screen text-center p-5">
-        <h1 class="text-4xl md:text-6xl font-bold">Milan Gabriel</h1>
-        <p class="text-lg md:text-2xl text-gray-600 mt-2">Cricket Analytics & Data Insights</p>
+<body class="homepage is-preload">
+    <div id="page-wrapper">
         
-        <p class="mt-6 text-gray-700 max-w-2xl">
-            Exploring the game through data. Providing insights on player performance, strategy, and analytics-driven decision-making.
-        </p>
+        <!-- Header -->
+        <section id="header" class="wrapper">
+            <div id="logo">
+                <img src="images/GabMetrix.png" alt="GabMetrix Logo" class="logo">
+                <h1><a href="index.html">GabMetrix</a></h1>
+                <p>Revolutionizing Sports Data Analytics</p>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li class="current"><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </section>
 
-        <!-- Social Links -->
-        <div class="mt-6 space-x-4">
-            <a href="https://github.com/milangabriel" class="text-blue-500 text-lg font-medium" target="_blank">GitHub</a>
-            <a href="https://linkedin.com/in/milangabriel" class="text-blue-500 text-lg font-medium" target="_blank">LinkedIn</a>
-            <a href="mailto:your@email.com" class="text-blue-500 text-lg font-medium">Email</a>
-        </div>
+        <!-- Hero Section -->
+        <section id="hero" class="wrapper style1">
+            <div class="title">Welcome to GabMetrix</div>
+            <p>Unlocking insights in sports with cutting-edge analytics.</p>
+            <a href="#contact" class="button style3">Get in Touch</a>
+        </section>
 
-        <!-- Contact Button -->
-        <a href="mailto:your@email.com" class="mt-8 bg-blue-600 text-white px-6 py-2 rounded-full text-lg hover:bg-blue-700">Get in Touch</a>
+        <!-- About Section -->
+        <section id="about" class="wrapper style3">
+            <div class="title">About Us</div>
+            <p>At <strong>GabMetrix</strong>, we are redefining sports analytics with cutting-edge <strong>AI and data science</strong>. Our mission is to empower <strong>athletes, coaches, and analysts</strong> with real-time insights, helping them make smarter decisions that drive performance and success.</p>
+        
+            <h3>Why GabMetrix?</h3>
+            <ul>
+                <li>🔹 <strong>AI-Powered Insights</strong> – We analyze complex data to reveal hidden patterns in gameplay and training.</li>
+                <li>🔹 <strong>Performance Optimization</strong> – Track key metrics to enhance endurance, speed, and decision-making.</li>
+                <li>🔹 <strong>Predictive Analytics</strong> – Stay ahead with forecasts on player form, injury risks, and game strategies.</li>
+            </ul>
+        
+            <p>From <strong>amateur athletes</strong> to <strong>professional leagues</strong>, GabMetrix transforms raw data into winning strategies.</p>
+        
+            <p>🚀 <strong>Join us</strong> in revolutionizing the future of sports analytics!</p>
+        </section>
+        <!-- Projects Section -->
+        <section id="projects" class="wrapper style3">
+            <div class="title">Our Projects</div>
+            <div class="container">
+                <div class="project">
+                    <h3>Scouting Report: </h3>
+                    <p>Comprehensive analysis of domestic List A cricketers in India.</p>
+                    <a href="/Data to Show/GabMetrix Scouting Report.pdf" target="_blank">Show Report</a>
+                </div>
+                <div class="project">
+                    <h3>🏏✨ IPL 2024 Predictions</h3>
+                    <p>Unveiling the Winning Edge: My Deep Dive into IPL 2024 Predictions and Analysis!</p>
+                    <a href="https://public.tableau.com/app/profile/milan.macwan/viz/CricketAnalytics_17108278252120/MAINSTORY?publish=yes" target="_blank">View Analysis</a>
+                </div>
+                <div class="project">
+                    <h3>Exploratory Data Analysis</h3>
+                    <p>Data Visualization using MatPlotLib in Python on IPL ball-by-ball dataset.</p>
+                    <a href="https://www.kaggle.com/code/milangabriel/ipl-eda-data-analysis/notebook" target="_blank">View Notebook</a>
+                </div>
+                <div class="project">
+                    <h3>Triplan:Trip Planner</h3>
+                    <p>A Trip planning app for travellers.</p>
+                    <a href="https://bit.ly/app-triplan" target="_blank">App</a>
+                    <a href="https://bit.ly/triplan_product_hunt" target="_blank">Product Hunt</a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="wrapper style4">
+            <div class="title">Contact Us</div>
+            <form id="contactForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 GabMetrix. All Rights Reserved.</p>
+            <a href="https://github.com/gabmetrix" target="_blank">GitHub</a>
+        </footer>
     </div>
-
 </body>
 </html>
