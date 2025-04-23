@@ -14,6 +14,33 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script>
+    // === PASTE YOUR FIREBASE CONFIGURATION HERE ===
+    const firebaseConfig = {
+        apiKey: "AIzaSyBf7F6SIfe14Qui9jjD6zTLhWY4TFwaF6s", // Use your actual key
+        authDomain: "gab-score.firebaseapp.com",
+        databaseURL: "https://gab-score-default-rtdb.firebaseio.com",
+        projectId: "gab-score",
+        storageBucket: "gab-score.appspot.com", // Corrected: remove firebasestorage part
+        messagingSenderId: "570864593493",
+        appId: "1:570864593493:web:64e96488927f30177202dc",
+        measurementId: "G-9GWPC97YDD" // Optional, for Analytics
+    };
+
+    // Initialize Firebase
+    try {
+        firebase.initializeApp(firebaseConfig);
+        console.log("Firebase Initialized Successfully.");
+        // You might still need the global 'database' variable if savedata.js uses it directly
+        // const database = firebase.database();
+    } catch (error) {
+        console.error("Firebase Initialization Failed:", error);
+        // Display an error to the user or disable Firebase features
+        alert("Error connecting to the database. Score saving disabled.");
+    }
+  </script>
 
   <!-- Copy icon -->
   <link rel="stylesheet"
@@ -164,13 +191,16 @@
           <button class="btn btn-outline-primary btn-lg btn-custom btn-custom-lg" id="run_3">3</button>
         </div>
         
-        <div class="col-4 my-auto zoom pb-1 px-1 run-btn">
+        <div class="col-3 my-auto zoom pb-1 px-1 run-btn">
           <button class="btn btn-outline-primary btn-custom btn-custom-sm" id="run_4">4</button>
         </div>
-        <div class="col-4 my-auto zoom pb-1 px-1 run-btn">
+        <div class="col-3 my-auto zoom pb-1 px-1 run-btn">
+          <button class="btn btn-outline-primary btn-custom btn-custom-sm" id="run_5">5</button>
+        </div>
+        <div class="col-3 my-auto zoom pb-1 px-1 run-btn">
           <button class="btn btn-outline-primary btn-custom btn-custom-sm" id="run_6">6</button>
         </div>
-        <div class="col-4 my-auto zoom pb-1 px-1 run-btn">
+        <div class="col-3 my-auto zoom pb-1 px-1 run-btn">
           <button class="btn btn-outline-primary btn-custom btn-custom-sm" id="run_W">Wicket</button>
         </div>
       </div>
@@ -183,36 +213,43 @@
             <option value="penalty">Penalty</option>
           </select>
         </div>
+          <button class="btn btn-success" id="confirmExtras">Confirm Extras</button>
+          <button class="btn btn-secondary ms-2" id="cancelExtras">Cancel</button>
+      </div>
+      <!-- Wicket Input UI (hidden by default) -->
+      <div id="wicketInputs" style="display: none;" class="card p-3 mt-3">
+        <!-- Wicket Type -->
         <div class="mb-3">
-          <div class="mb-3">
-            <label class="form-label">Additional Runs:</label>
-            <div class="row g-2 mt-1">
-                <div class="col-2">
-                    <button class="btn btn-outline-primary w-100 extras-run-btn" data-runs="0">0</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-outline-primary w-100 extras-run-btn" data-runs="1">1</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-outline-primary w-100 extras-run-btn" data-runs="2">2</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-outline-primary w-100 extras-run-btn" data-runs="3">3</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-outline-primary w-100 extras-run-btn" data-runs="4">4</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-outline-primary w-100 extras-run-btn" data-runs="5">5</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-outline-primary w-100 extras-run-btn" data-runs="6">6</button>
-                </div>
-            </div>
+          <label for="wicketTypeSelect" class="form-label">Wicket Type</label>
+          <select id="wicketTypeSelect" class="form-select">
+            <option value="Bowled">Bowled</option>
+            <option value="Caught">Caught</option>
+            <option value="LBW">LBW</option>
+            <option value="Run Out">Run Out</option>
+            <option value="Stumped">Stumped</option>
+            <option value="Hit Wicket">Hit Wicket</option>
+            <option value="Retired Hurt">Retired Hurt</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
+
+        <!-- Player Dismissed Buttons -->
+        <div class="mb-3">
+          <label class="form-label">Who's Out?</label>
+          <div class="d-grid gap-2">
+            <button id="strikerOutBtn" class="btn btn-outline-danger" onclick="selectBatsmanOut('striker')"></button>
+            <button id="nonStrikerOutBtn" class="btn btn-outline-danger" onclick="selectBatsmanOut('nonStriker')"></button>
+          </div>
         </div>
-        <button class="btn btn-success" id="confirmExtras">Confirm Extras</button>
-        <button class="btn btn-secondary ms-2" id="cancelExtras">Cancel</button>
+
+        <!-- New Batsman Name (initially hidden) -->
+        <div id="newBatsmanSection" class="mb-3" style="display:none;">
+          <label for="newBatsmanInput" class="form-label">New Batsman Name</label>
+          <input type="text" id="newBatsmanInput" class="form-control" placeholder="Enter new batsman's name">
+          <div class="d-grid mt-2">
+            <button class="btn btn-danger" onclick="confirmWicket()">Submit</button>
+          </div>
+        </div>
       </div>
           <!-- Row 1: Scoreboard & Undo -->
           <div class="row">
@@ -380,6 +417,7 @@
     crossorigin="anonymous"></script>
   <script src="main_mqtt.js"></script>
   <script src="main.js"></script>
+  <script src="savedata.js"></script>
 </body>
 
 </html>
