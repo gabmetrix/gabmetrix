@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GabMetrix Cricket Talent Scouting Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+
+        }
+        
+        .logo {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #1a2c50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #1a2c50;
+            font-size: 2rem;
+            margin-top: 40px;
+            border-bottom: 2px solid #1a2c50;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #2a5885;
+            font-size: 1.5rem;
+            margin-top: 30px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .intro-section {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .player-card {
+            display: flex;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .player-image {
+            width: 220px;
+            height: 220px;
+            padding: 5px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 0.9rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        .player-details {
+            flex: 1;
+            padding: 20px;
+        }
+        
+        .player-name {
+            font-size: 1.8rem;
+            margin-top: 0;
+            color: #1a2c50;
+        }
+        
+        .player-role {
+            color: #2a5885;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .strengths-weaknesses {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .strengths, .weaknesses {
+            flex: 1;
+            padding: 15px;
+        }
+        
+        .strengths {
+            background-color: #e6f7ea;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        
+        .weaknesses {
+            background-color: #fff2f2;
+            border-radius: 5px;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1a2c50;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: #2a5885;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .criteria-box {
+            background-color: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2a5885;
+        }
+        
+        .conclusion {
+            background-color: #e6f7ea;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #6c757d;
+        }
+        
+        .ideal-role {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header style="padding: 0px; position: fixed; top: 0; left: 0; right: 0; background-color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <div class="logo">
+                <img src="Images/GabMetrix.png" alt="GabMetrix Logo" style="max-width: 150px; height: auto;">
+            </div>
+            <div style="width: 100%;">
+                <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+                    <h1 style="margin: 0;">GabMetrix Cricket Talent Scouting Report</h1>
+                </div>
+                <div style="display: flex; justify-content: space-between; width: 100%;">
+                    <h3 style="margin: 0; color: #6c757d; padding-left: 0;">From Insights to Impact</h3>
+                    <p style="margin: 0; font-size: 0.9rem; color: #6c757d;">Date: April 26, 2025</p>
+                </div>
+                <div class="social-links"style="display: flex; gap:15px; width: 100%;">
+                    <a href="https://gabmetrix.github.io/" target="_blank" style="color: #6c757d; text-decoration: none;">
+                        Home
+                    </a>
+                    <a href="https://bit.ly/gabmetrix_scoutingv0" target="_blank" style="color: #6c757d; text-decoration: none;">
+                        Download
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+    </header>
+    <div style="padding-top: 120px;">    
+        <section class="intro-section">
+            <h2>Introduction</h2>
+            <p>Cricket has always been a sport where raw talent meets opportunity. However, with the rise of franchise leagues, domestic tournaments, and international schedules, the challenge is no longer just about talent—but about visibility. While some players make headlines through conventional pathways, many promising cricketers remain under the radar, despite having performance metrics comparable to top-tier players.</p>
+            
+            <p>This scouting report aims to bridge that gap by using data-driven analysis to identify emerging stars—players who may not yet have the spotlight but have consistently delivered in domestic circuits. By leveraging advanced statistical metrics, this report presents a rigorous, unbiased evaluation of players who have outperformed expectations and could soon make their mark on the bigger stage.</p>
+            
+            <h3>Purpose of the Report</h3>
+            <ul>
+                <li>To identify and analyse top-performing domestic players who have the potential to break into international cricket.</li>
+                <li>To compare their key performance metrics with established players and highlight why they stand out.</li>
+                <li>To provide insights into their playing style and impact, offering a data-backed approach to talent scouting.</li>
+            </ul>
+            
+            <h3>Methodology</h3>
+            <p>This report follows a quantitative and qualitative approach to player scouting. Players were selected based on:</p>
+            <ul>
+                <li><strong>Performance Metrics:</strong> Consistency, Impact, Efficiency (e.g., Strike Rate, Economy Rate, Wicket %, Boundary %).</li>
+                <li><strong>Role-Specific Strengths:</strong> Identifying batters who dominate in different phases of the game & bowlers who thrive under pressure.</li>
+                <li><strong>Comparative Analysis:</strong> Evaluating how domestic talent stacks up against established international players.</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Identifying the Next Generation of Game-Changing Batters</h2>
+            <p>In modern cricket, batting is no longer just about scoring runs—it's about how quickly and effectively those runs are scored. With the rise of T20 leagues and aggressive ODI strategies, batters must adapt to different conditions, bowlers, and game situations.</p>
+            
+            <p>However, many promising batters in domestic circuits remain unnoticed despite their impressive numbers. This section aims to highlight underrated batting talents who have consistently delivered but have not yet received the recognition they deserve.</p>
+            
+            <h3>Player Criteria</h3>
+            <p>The players are analysed based on Syed Mushtaq Ali Trophy data from 2021 – 24. Below are the criteria to filter players from domestic circle and international circle to compare them.</p>
+            
+            <table>
+                <tr>
+                    <th>Stage</th>
+                    <th>Min Matches</th>
+                    <th>Min Runs</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td>New Players (SMA)</td>
+                    <td>15</td>
+                    <td>350</td>
+                    <td>No IPL/t20i after 2023</td>
+                </tr>
+                <tr>
+                    <td>Established Players (IPL/t20i)</td>
+                    <td>90</td>
+                    <td>2000</td>
+                    <td></td>
+                </tr>
+            </table>
+            
+            <div class="criteria-box">
+                <h3>What Makes a Batter Stand Out?</h3>
+                <p>To ensure a data-driven and unbiased selection, this report evaluates batters based on:</p>
+                <ul>
+                    <li><strong>Consistency Score</strong> – How often they score impactful runs (30+ per innings).</li>
+                    <li><strong>Boundary %</strong> – Ability to accelerate the scoring rate with 4s & 6s.</li>
+                    <li><strong>Strike Rate (Overall & Under Pressure)</strong> – Efficiency in normal & high-pressure situations (death overs).</li>
+                    <li><strong>Dot Ball %</strong> – Ability to rotate strike and keep the scoreboard moving.</li>
+                </ul>
+                <p>Impact score for each batter is calculated based on above mentioned 5 criteria as per weighted ranking to filter top performers.</p>
+            </div>
+            
+            <h3>Why This Matters?</h3>
+            <ul>
+                <li>These batters have outperformed expectations in their respective domestic leagues.</li>
+                <li>Their stats match or exceed those of established players, proving they are ready for bigger opportunities.</li>
+                <li>By identifying them early, teams can invest in future match-winners before they hit mainstream recognition.</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Top Find – Batters</h2>
+            
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="Images/Tanmay.png" alt="Tanmay Agarwal Player Image" style="max-width: 200px; height: auto; border-radius: 8px;";>
+                </div>
+                <div class="player-details">
+                    <h3 class="player-name">1. Tanmay Agarwal</h3>
+                    
+                    <p><strong>Player Overview:</strong> Born May 3, 1995, in Hyderabad, Tanmay Agarwal is a left-handed opener and Hyderabad captain. He holds the fastest first-class triple-century (366 off 147) and has played for Sunrisers Hyderabad in the IPL.</p>
+                    
+                    <p class="player-role">Role: Left – Handed Opening Batter<br>
+                    Playing Style: Aggressive opening with powerplay impact</p>
+                    
+                    <div class="strengths-weaknesses">
+                        <div class="strengths">
+                            <div class="section-title">Strengths:</div>
+                            <ul>
+                                <li>Explosive Powerplay Batter: High SR (125.16) in batting powerplay</li>
+                                <li>Strike Rotation: His ability to rotate strike enables his batting partner score runs at much higher pace</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="weaknesses">
+                            <div class="section-title">Areas for Improvement:</div>
+                            <ul>
+                                <li>Consistency Score: Have converted only 7 out of 15 innings to 30+ score</li>
+                                <li>Spin in powerplay: Of the 7 times he got caught out, 4 came in powerplay and 3 of which were to right arm spinners</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4>Comparison with established players:</h4>
+                    <table>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Tanmay</th>
+                            <th>Comparable Player(SR)</th>
+                        </tr>
+                        <tr>
+                            <td>Powerplay SR</td>
+                            <td>125.16</td>
+                            <td>Virat Kohli (125.94)</td>
+                        </tr>
+                        <tr>
+                            <td>Middle over SR</td>
+                            <td>127.93</td>
+                            <td>David Miller (123.81)</td>
+                        </tr>
+                        <tr>
+                            <td>Death SR</td>
+                            <td>247.06</td>
+                            <td>Suryakumar Yadav (220.07)</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="ideal-role">
+                        <h4>Ideal role:</h4>
+                        <ul>
+                            <li>Aggressive opener & Anchor – to – accelerator batter</li>
+                            <li>Impact player in death overs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="conclusion">
+                        <strong>Conclusion:</strong> Agarwal is a high-impact top-order batter with an aggressive powerplay approach and the ability to accelerate under pressure. His consistency and adaptability make him a strong candidate for T20 leagues and higher-level competition.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="Images/Prerak.webp" alt="Prerak Mankad Player Image" style="max-width: 200px; height: auto; border-radius: 8px;";>
+                </div>
+                <div class="player-details">
+                    <h3 class="player-name">2. Prerak Mankad</h3>
+                    
+                    <p><strong>Player Overview:</strong> Born April 23, 1994, Prerak Mankad is a versatile batting all-rounder for Saurashtra. He has played for PBKS and LSG in the IPL since his 2022 debut, adding depth with his right-handed batting and medium pace.</p>
+                    
+                    <p class="player-role">Role: Right-Handed Batter, Right-Arm Medium Bowler<br>
+                    Playing Style: Explosive middle-order batter with medium-pace bowling ability</p>
+                    
+                    <div class="strengths-weaknesses">
+                        <div class="strengths">
+                            <div class="section-title">Strengths:</div>
+                            <ul>
+                                <li>Explosive middle order batter – High strike rate in all phases</li>
+                                <li>Handy Middle overs bowler: Has 9 wickets in 13 matches that he bowled in Middle overs</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="weaknesses">
+                            <div class="section-title">Areas for Improvement:</div>
+                            <ul>
+                                <li>PP Dot ball: Has higher(48%) dot balls in PP</li>
+                                <li>Death bowling: Has bowled only once in PP at 8.77 Economy; small dataset hence can be used more in death</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4>Comparison with established players:</h4>
+                    <table>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Prerak</th>
+                            <th>Comparable Player</th>
+                        </tr>
+                        <tr>
+                            <td>Middle over SR</td>
+                            <td>138.67</td>
+                            <td>Hardik Pandya (118.43)</td>
+                        </tr>
+                        <tr>
+                            <td>Death SR</td>
+                            <td>187.50</td>
+                            <td>Andre Russell (179.02)</td>
+                        </tr>
+                        <tr>
+                            <td>Wicket Taking %</td>
+                            <td>69.23</td>
+                            <td>Cameroon Green (70)</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="ideal-role">
+                        <h4>Ideal role:</h4>
+                        <ul>
+                            <li>Middle order aggressor</li>
+                            <li>Part-time medium pacer</li>
+                            <li>Backup finisher</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="conclusion">
+                        <strong>Conclusion:</strong> He is a dynamic batting all-rounder with explosive strike rates across all phases. His versatility and ability to contribute as a middle-overs bowler make him a valuable asset, positioning him as a strong contender for higher-level competition.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="Images/Samarth.webp" alt="Samarth Vyas Player Image" style="max-width: 200px; height: auto; border-radius: 8px;";>
+                </div>
+                <div class="player-details">
+                    <h3 class="player-name">3. Samarth Vyas</h3>
+                    
+                    <p><strong>Player Overview:</strong> Born November 28, 1995, in Rajkot, Gujarat, represents Saurashtra. He debuted in first-class cricket on November 23, 2015. In 2023, SRH acquired him for ₹20 lakh in the IPL auction, though he was released after one season.</p>
+                    
+                    <p class="player-role">Role: Right – Handed middle order Batter, Leg-break googly bowler<br>
+                    Playing Style: Aggressive stroke-maker</p>
+                    
+                    <div class="strengths-weaknesses">
+                        <div class="strengths">
+                            <div class="section-title">Strengths:</div>
+                            <ul>
+                                <li>Aggressive Stroke maker: Hits boundary every 4th ball in PP & in Death overs</li>
+                                <li>Consistent Strike Rate: Maintains momentum throughout the inning</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="weaknesses">
+                            <div class="section-title">Areas for Improvement:</div>
+                            <ul>
+                                <li>PP Dot ball: Has higher(51%) dot balls in PP</li>
+                                <li>Low Conversion: Has scored only 5 30+ score in 16 innings</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4>Comparison with established players:</h4>
+                    <table>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Samarth</th>
+                            <th>Comparable Player</th>
+                        </tr>
+                        <tr>
+                            <td>Middle over SR</td>
+                            <td>135.48</td>
+                            <td>KL Rahul (138.71)</td>
+                        </tr>
+                        <tr>
+                            <td>Death SR</td>
+                            <td>187.50</td>
+                            <td>Andre Russell (179.02)</td>
+                        </tr>
+                        <tr>
+                            <td>Boundary %</td>
+                            <td>20.58%</td>
+                            <td>Rishab Pant (17.78%)</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="ideal-role">
+                        <h4>Ideal role:</h4>
+                        <ul>
+                            <li>Middle order aggressor</li>
+                            <li>Anchor accelerator</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="conclusion">
+                        <strong>Conclusion:</strong> He is a dynamic middle-order batsman renowned for his aggressive stroke play and impressive strike rates across all game phases. His ability to accelerate scoring positions him as a valuable asset. Enhancing strike rotation and conversion rates could further elevate his impact.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="Images/Himmat.webp" alt="Himmat Singh Player Image" style="max-width: 200px; height: auto; border-radius: 8px;";>
+                </div>
+                <div class="player-details">
+                    <h3 class="player-name">4. Himmat Singh</h3>
+                    
+                    <p><strong>Player Overview:</strong> A right-handed middle-order batter known for his adaptability and composure under pressure. Representing Delhi in domestic cricket, he combines a strong powerplay strike rate with stability in the middle overs, making him a reliable asset for limited-overs formats.</p>
+                    
+                    <p class="player-role">Role: Right – Handed middle order Batter<br>
+                    Playing Style: Steady middle-order anchor & finisher</p>
+                    
+                    <div class="strengths-weaknesses">
+                        <div class="strengths">
+                            <div class="section-title">Strengths:</div>
+                            <ul>
+                                <li>Boundary in Middle Overs: Finds gap in middle overs</li>
+                                <li>Middle over strike rotation: Strike rate of 116.47 in middle overs, rotates strike so partner scores more</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="weaknesses">
+                            <div class="section-title">Areas for Improvement:</div>
+                            <ul>
+                                <li>Dot ball: Has overall dot% of 37% but in death overs it is 29%</li>
+                                <li>Low Conversion: Has scored only 7 25+ score in 17 innings</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4>Comparison with established players:</h4>
+                    <table>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Himmat</th>
+                            <th>Comparable Player</th>
+                        </tr>
+                        <tr>
+                            <td>Middle over SR</td>
+                            <td>116.47</td>
+                            <td>Manish Pandey (117.88)</td>
+                        </tr>
+                        <tr>
+                            <td>Death SR</td>
+                            <td>146.30</td>
+                            <td>Tilak Varma (148.36)</td>
+                        </tr>
+                        <tr>
+                            <td>Batting Average</td>
+                            <td>32.91</td>
+                            <td>Aiden Markram (30.54)</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="ideal-role">
+                        <h4>Ideal role:</h4>
+                        <ul>
+                            <li>Middle order anchor & accelerator</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="conclusion">
+                        <strong>Conclusion:</strong> He is a versatile middle-order batter with the ability to shift gears based on the game situation. His strong powerplay strike rate and composure under pressure make him a valuable asset for teams looking for a balanced and adaptable batter. With better conversion rates, he could be a key performer at higher levels.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Identifying the Next Generation of Game-Changing Bowlers</h2>
+            <p>Bowling in modern cricket goes beyond just taking wickets—it's about dictating play, adapting to different match situations, and thriving under pressure. With the evolution of T20 leagues and aggressive batting, bowlers must excel across all phases—powerplay, middle overs, and death overs.</p>
+            
+            <p>Despite their consistent performances, many talented bowlers in domestic cricket remain overlooked. This section identifies emerging bowlers who have delivered outstanding results but have yet to receive the recognition they deserve.</p>
+            
+            <h3>Player Criteria</h3>
+            <p>The players are analysed based on Syed Mushtaq Ali Trophy data from 2021 – 24. Below are the criteria to filter players from domestic circle and international circle to compare them.</p>
+            
+            <table>
+                <tr>
+                    <th>Stage</th>
+                    <th>Min Matches</th>
+                    <th>Min Wickets</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td>New Players (SMA)</td>
+                    <td>17</td>
+                    <td>17</td>
+                    <td>No IPL/t20i after 2023</td>
+                </tr>
+                <tr>
+                    <td>Established Players (IPL/t20i)</td>
+                    <td>80</td>
+                    <td>80</td>
+                    <td></td>
+                </tr>
+            </table>
+            
+            <div class="criteria-box">
+                <h3>What Makes a Bowler Stand Out?</h3>
+                <p>To ensure a data-driven and unbiased selection, this report evaluates bowlers based on:</p>
+                <ul>
+                    <li><strong>Wicket-Taking %</strong> – How often they take wickets per over bowled.</li>
+                    <li><strong>Economy Rate (Overall & Phase-Based)</strong> – Efficiency in restricting runs.</li>
+                    <li><strong>Dot Ball %</strong> – Ability to build pressure and control the game.</li>
+                    <li><strong>Strike Rate (Balls per Wicket)</strong> – How frequently they take wickets.</li>
+                    <li><strong>Death Overs Performance</strong> – Ability to deliver in high-pressure situations.</li>
+                </ul>
+                <p>Each bowler's Impact Score is calculated using a weighted ranking system based on the above criteria, ensuring that the top performers are identified objectively.</p>
+            </div>
+            
+            <h3>Why This Matters?</h3>
+            <ul>
+                <li>These bowlers have consistently outperformed expectations in domestic cricket.</li>
+                <li>Their statistics showcase their readiness for higher levels.</li>
+                <li>Investing in them will create future bowling leaders.</li>
+            </ul>
+        </section>
+        
+        <section>
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="Images/Yash.jpg" alt="Yash Thakur Player Image" style="max-width: 200px; height: auto; border-radius: 8px;";>
+                </div>
+                <div class="player-details">
+                    <h3 class="player-name">1. Yash Thakur</h3>
+                    
+                    <p><strong>Player Overview:</strong> Yash Thakur, born 28 Dec 1998 is a right-arm medium-fast bowler known for his wicket-taking ability and control in powerplay and death overs. Representing Vidarbha, he combines a strong strike rate with an impressive economy, making him a valuable asset for limited overs cricket.</p>
+                    
+                    <p class="player-role">Role: Right arm medium pace bowler<br>
+                    Playing Style: Wicket taking seamer with control in PP & Death overs</p>
+                    
+                    <div class="strengths-weaknesses">
+                        <div class="strengths">
+                            <div class="section-title">Strengths:</div>
+                            <ul>
+                                <li>Wicket taking machine: 29 wickets in 17 matches</li>
+                                <li>Death over specialist: Economy of 6.58 in death</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="weaknesses">
+                            <div class="section-title">Areas for Improvement:</div>
+                            <ul>
+                                <li>Middle overs: Concedes runs at 9.91 in middle over & Average of 35</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4>Comparison with established players:</h4>
+                    <table>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Yash</th>
+                            <th>Comparable Player</th>
+                        </tr>
+                        <tr>
+                            <td>Death Over Eco</td>
+                            <td>6.58</td>
+                            <td>Jasprit Bumrah (6.70)</td>
+                        </tr>
+                        <tr>
+                            <td>PP Eco</td>
+                            <td>6.20</td>
+                            <td>Adil Rashid (6.89)</td>
+                        </tr>
+                        <tr>
+                            <td>Bowling SR</td>
+                            <td>12.66</td>
+                            <td>Mark Wood (14.36)</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="ideal-role">
+                        <h4>Ideal role:</h4>
+                        <ul>
+                            <li>Opening Spell specialist</li>
+                            <li>Death over enforcer</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="conclusion">
+                        <strong>Conclusion:</strong> He is a high-impact pacer with exceptional wicket-taking ability and a strong economy in powerplay and death overs. His ability to strike frequently and control the run rate makes him a strong contender for higher-level opportunities. With improved middle-overs economy, he could become a complete fast-bowling asset.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="Images/Darshan.webp" alt="Darshan Nalkande Player Image"style="max-width: 200px; height: auto; border-radius: 8px;";>
+                </div>
+                <div class="player-details">
+                    <h3 class="player-name">2. Darshan Nalkande</h3>
+                    
+                    <p><strong>Player Overview:</strong> Born on 4 Oct 1998, he is a right-arm fast bowler known for his ability to strike regularly while maintaining control across all phases. With a strong dot ball percentage and effective economy, he remains a reliable wicket-take.</p>
+                    
+                    <p class="player-role">Role: Right arm medium pace bowler<br>
+                    Playing Style: Wicket taking seamer with control in Middle overs & Effective in Death overs</p>
+                    
+                    <div class="strengths-weaknesses">
+                        <div class="strengths">
+                            <div class="section-title">Strengths:</div>
+                            <ul>
+                                <li>Death over Efficiency: Controls runs at ER of 7.42 and SR of 5.07</li>
+                                <li>High Dot ball%: Builds pressure (38.46%)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="weaknesses">
+                            <div class="section-title">Areas for Improvement:</div>
+                            <ul>
+                                <li>Middle overs: Gets wicket once every 4th match only, at an average of 39</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4>Comparison with established players:</h4>
+                    <table>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Darshan</th>
+                            <th>Comparable Player</th>
+                        </tr>
+                        <tr>
+                            <td>PP Eco</td>
+                            <td>7.62</td>
+                            <td>Arshdeep Singh (7.79)</td>
+                        </tr>
+                        <tr>
+                            <td>Death Dot ball%</td>
+                            <td>38.46</td>
+                            <td>Mitchell Starc (39.01)</td>
+                        </tr>
+                        <tr>
+                            <td>Bowling AVG</td>
+                            <td>17.22</td>
+                            <td>Josh Hazlewood (20.86)</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="ideal-role">
+                        <h4>Ideal role:</h4>
+                        <ul>
+                            <li>Economical Powerplay & Middle over Bowler</li>
+                            <li>Death over wicket taker</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="conclusion">
+                        <strong>Conclusion:</strong> He is a high-potential T20 bowler with a proven ability to take wickets and restrict scoring in key phases. His control in middle and death overs makes him a valuable asset. With refined powerplay execution, he could become a complete white-ball bowler; perhaps a player of the generation!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="Images/Atit.webp" alt="Atit Sheth Player Image" style="max-width: 200px; height: auto; border-radius: 8px;";>
+                </div>
+                <div class="player-details">
+                    <h3 class="player-name">3. Atit Sheth</h3>
+                    
+                    <p><strong>Player Overview:</strong> Atit Sheth is a skilled medium-pacer known for his effectiveness in middle and death overs. With a solid strike rate and a strong wicket-taking percentage, he thrives under pressure.</p>
+                    
+                    <p class="player-role">Role: Right arm medium pace bowler<br>
+                    Playing Style: Constant wicket taker in middle & death overs</p>
+                    
+                    <div class="strengths-weaknesses">
+                        <div class="strengths">
+                            <div class="section-title">Strengths:</div>
+                            <ul>
+                                <li>Middle over impact: 10 wickets at 7.42 Eco</li>
+                                <li>Last Over Wickets: Has caused 3 runouts in last over, with 0 no balls in death overs</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="weaknesses">
+                            <div class="section-title">Areas for Improvement:</div>
+                            <ul>
+                                <li>Powerplay: Has only 7 wickets at an average of 35 in powerplay</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4>Comparison with established players:</h4>
+                    <table>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Atit</th>
+                            <th>Comparable Player</th>
+                        </tr>
+                        <tr>
+                            <td>Middle Over W %</td>
+                            <td>66.67</td>
+                            <td>Harshal Patel (63.57)</td>
+                        </tr>
+                        <tr>
+                            <td>Death Dot ball%</td>
+                            <td>27.94</td>
+                            <td>Sam Curran (24.56)</td>
+                        </tr>
+                        <tr>
+                            <td>Bowling AVG</td>
+                            <td>20.57</td>
+                            <td>Mark Wood (19.40)</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="ideal-role">
+                        <h4>Ideal role:</h4>
+                        <ul>
+                            <li>Middle over wicket taker</li>
+                            <li>Death over enforcer</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="conclusion">
+                        <strong>Conclusion:</strong> Atit Sheth is a dependable medium pacer who thrives in the middle and death overs, consistently taking wickets. His ability to maintain pressure with dot balls and break key partnerships makes him a valuable asset. If he improves his powerplay penetration and death-over economy, he could develop into a high-impact bowler at the next level.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="Images/Ninad.jpeg" alt="Ninad Rathva Player Image" style="max-width: 200px; height: auto; border-radius: 8px;";>
+                </div>
+                <div class="player-details">
+                    <h3 class="player-name">4. Ninad Rathva</h3>
+                    
+                    <p><strong>Player Overview:</strong> Born 10 March 1999, he is a disciplined left-arm spinner with an impressive economy across all phases. His ability to control runs and strike regularly makes him a reliable middle-overs option.</p>
+                    
+                    <p class="player-role">Role: Left-arm orthodox spinner<br>
+                    Playing Style: Economical spinner with consistent control throughout the game</p>
+                    
+                    <div class="strengths-weaknesses">
+                        <div class="strengths">
+                            <div class="section-title">Strengths:</div>
+                            <ul>
+                                <li>Economy: Maintains low economy rate across formats and match</li>
+                                <li>Last Over Wickets: Has wicket taking % of 75 in death overs</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="weaknesses">
+                            <div class="section-title">Areas for Improvement:</div>
+                            <ul>
+                                <li>Adaptability: Continuing to adapt to different playing conditions and opposition strategies will be crucial for his development.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4>Comparison with established players:</h4>
+                    <table>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Ninad</th>
+                            <th>Comparable Player</th>
+                        </tr>
+                        <tr>
+                            <td>Economy</td>
+                            <td>6.13</td>
+                            <td>M Teekshana (7.10)</td>
+                        </tr>
+                        <tr>
+                            <td>Death Dot ball%</td>
+                            <td>36%</td>
+                            <td>Jasprit Bumrah (35%)</td>
+                        </tr>
+                        <tr>
+                            <td>PP Boundary %</td>
+                            <td>9.26</td>
+                            <td>Mahedi Hassan (12.17)</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="ideal-role">
+                        <h4>Ideal role:</h4>
+                        <ul>
+                            <li>Middle over specialist; able to apply pressure on batting side</li>
+                            <li>Flexible & adaptable bowler suitable for all match phases</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="conclusion">
+                        <strong>Conclusion:</strong> His economical bowling, wicket-taking ability, and adaptability make him a valuable asset. With improved strike rate and powerplay impact, he has the potential to become a complete spin-bowling option at higher levels.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="Images/Chirag.webp" alt="Chirag Jani Player Image"style="max-width: 200px; height: auto; border-radius: 8px;";>
+                </div>
+                <div class="player-details">
+                    <h3 class="player-name">5. Chirag Jani</h3>
+                    
+                    <p><strong>Player Overview:</strong> Aged 35, he is a seasoned medium-fast bowler known for his control and versatility across all phases. With a strong economy in the powerplay and the ability to maintain pressure, he is a reliable option. Enhancing his wicket-taking and death-over execution could elevate his impact further.</p>
+                    
+                    <p class="player-role">Role: Right-Arm-Medium-Fast-Bowler<br>
+                    Playing Style: Control-oriented seamer</p>
+                    
+                    <div class="strengths-weaknesses">
+                        <div class="strengths">
+                            <div class="section-title">Strengths:</div>
+                            <ul>
+                                <li>Reliable in PP: Economy of 7.32 with tight control early on</li>
+                                <li>Consistency & Adaptability: Maintains pressure with disciplined bowling & experience in all phases</li>
+                                <li>Partner up: Creates such impact that improves bowling partner's stats</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="weaknesses">
+                            <div class="section-title">Areas for Improvement:</div>
+                            <ul>
+                                <li>Wicket Taking: Need to work on wicket taking ability become actual impact player</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4>Comparison with established players:</h4>
+                    <table>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Chirag</th>
+                            <th>Comparable Player</th>
+                        </tr>
+                        <tr>
+                            <td>PP Economy</td>
+                            <td>7.50</td>
+                            <td>Reece Topley (7.35)</td>
+                        </tr>
+                        <tr>
+                            <td>Middle Over Economy</td>
+                            <td>7.83</td>
+                            <td>Md. Siraj (7.62)</td>
+                        </tr>
+                        <tr>
+                            <td>PP Dot Ball %</td>
+                            <td>37.40</td>
+                            <td>Anrich Nortje (37.55)</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="ideal-role">
+                        <h4>Ideal role:</h4>
+                        <ul>
+                            <li>Powerplay economical swing bowler</li>
+                            <li>Middle over bowling partner to wicket takers</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="conclusion">
+                        <strong>Conclusion:</strong> Chirag is a versatile seamer who enhances his bowling partners' effectiveness while maintaining control across phases. With improved wicket-taking and death-over execution, he can establish himself as a reliable fast-bowling asset in competitive cricket.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="footer">
+            <p>© 2025 GabMetrix | From Insights to Impact</p>
+            <p>www.gabmetrix.github.io | gabmetrix@gmail.com</p>
+        </footer>
+    </div>
+</body>
+</html>
